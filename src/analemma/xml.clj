@@ -73,6 +73,11 @@
   (str "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
        (reduce #(str %1 (emit-tag %2)) "" tags)))
 
+(defn emit-with-stylesheet [href & tags]
+  (str "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+       "<?xml-stylesheet href=\"" href "\" type=\"text/css\"?>"
+       (reduce #(str %1 (emit-tag %2)) "" tags)))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; FUNCTIONS FOR PARSING XML FILES
